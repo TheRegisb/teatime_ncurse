@@ -17,23 +17,16 @@ How to propely install and use teatime.
 
 First, make sure you have Make, GCC and ncurses
 
-...
-$> sudo apt-get install make gcc ncurses
-...
-
+`sudo apt-get install make gcc ncurses`
 ### Instalation
 
 First, move to the cloned repository
 
-...
-$> cd ~/-path-/teatime_ncruse-master
-...
+`cd ~/-path-/teatime_ncruse-master`
 
 Then, proceed to the compliation
 
-...
-$> make
-...
+`make`
 
 If no error occurs during the compilation, teatime is now ready.
 
@@ -42,18 +35,16 @@ If no error occurs during the compilation, teatime is now ready.
 teatime is currently compiled as a local software.
 You need to explicitly call him each time you want to run it
 
-...
-$> ~/-your-/-path-/teatime [option(s)]
-...
+`~/-your-/-path-/teatime [option(s)]`
 
 By now, only four options are available
 
-...
+```
 -m --minutes={XX}	  -> Add XX minute(s) to the timer
 -s --seconds={YY}	  -> Add YY second(s) to the timer
 -h --help		  -> Display this help
 -v --version		  -> Display current version and extra info
-...
+```
 
 At least one time option is required, and the time should e greater than 0s.
 
