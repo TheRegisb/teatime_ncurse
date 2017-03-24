@@ -5,20 +5,10 @@
 ** Login   <regis.berthelot@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 16:39:12 2017 Régis Berthelot
-** Last update Fri Mar 24 16:32:30 2017 Régis Berthelot
+** Last update Fri Mar 24 17:23:44 2017 Régis Berthelot
 */
 
 #include "my.h"
-#include <stdio.h>
-
-void	help(void)
-{
-  write(1, "Usage: teatime [option]\n"
-	 "  -m --minutes={XX}\tAdd XX minute(s) to the timer.\n"
-	 "  -s --seconds={YY]\tAdd YY second(s) to the timer.\n"
-	 "  -h --help\t\tDisplay this help.\n"
-	"  -v --version\tDisplay current version\n", 197);
-}
 
 /*
 ** Time_array represent {Min; Sec; Total time in sec}
@@ -34,8 +24,6 @@ int	main(int ac, char **av)
       help();
       return (1);
     }
-  time_array[0] = 0;
-  time_array[1] = 0;
   parser(av, time_array);
   if (time_array[0] == 0 && time_array[1] == 0)
     {

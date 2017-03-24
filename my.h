@@ -5,7 +5,7 @@
 ** Login   <regis.berthelot@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 16:38:31 2017 Régis Berthelot
-** Last update Thu Mar 23 19:03:30 2017 Régis Berthelot
+** Last update Fri Mar 24 17:20:04 2017 Régis Berthelot
 */
 
 #ifndef MY_H_
@@ -16,8 +16,19 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+/*
+** Parsing related functions
+*/
+
 int	is_numeric(char *);
 int	get_time_option(char *);
 void	parser(char **, int *);
+
+/*
+** Text related functions
+*/
+
+void	help(void);
+void	version(void);
 
 #endif /* !MY_H_ */
