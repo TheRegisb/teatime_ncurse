@@ -5,14 +5,14 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 19:50:46 2017 Régis Berthelot
-** Last update Sat Mar 25 10:03:28 2017 Régis Berthelot
+** Last update Sat Mar 25 17:42:18 2017 Régis Berthelot
 */
 
 #include "my.h"
 
 static void	are_details_asked(char **av)
 {
-  for (int i = 0; av[i] != NULL; i++)
+  for (int i = 1; av[i] != NULL; i++)
     {
       if ((strcmp(av[i], "-h") == 0)
 	  || (strcmp(av[i], "--help") == 0))
@@ -27,6 +27,29 @@ static void	are_details_asked(char **av)
 	  exit(0);
 	}
     }
+}
+
+static int	start_paused(char **av)
+{
+  int		pause;
+
+  pause = -1;
+  for (int i = 1; av[i] != NULL; i++)
+    {
+      if ((strcmp(av[i], "-p") == 0)
+	  || (strcmp(av[i], "--pause") == 0))
+	{
+	  if (pause != -1)
+	    {
+	      write(2, "Error: Conflicting setup. "
+		    "No more than one option of the same type"
+		    " can be used.\n", 80);
+	      exit(1);
+	    }
+	  pause = 1;
+	}
+    }
+  return (pause);
 }
 
 static int	parse_time(char  **av, char *short_option, char *long_option)
@@ -83,4 +106,11 @@ void	parser(char **av, int *time_array)
   time_array[0] += time_array[1] / 60;
   time_array[1] %= 60;
   time_array[2] = time_array[1] + (time_array[0] * 60);
+  if (time_array[2] > 5999)
+    {
+      write(2, "Error: "
+	    "Cannot set a timer greater than 99:59 (or 5999 seconds)\n", 63);
+      exit(1);
+    }
+  time_array[3] = start_paused(av);
 }

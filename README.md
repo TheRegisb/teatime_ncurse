@@ -1,4 +1,4 @@
-# teatime ncurse
+# teatime_ncurses
 
 A simple C ncurses-based timer made in order to know when my tea is ready.
 
@@ -9,7 +9,7 @@ Only tested on Debian 9 (testing) with amd64 architecture.
 
 ## Getting started:
 
-How to properly install and use teatime.
+How to properly install and use Teatime.
 
 ### Prerequisite
 
@@ -30,26 +30,28 @@ Then, proceed to the compilation
 
 `make`
 
-If no error occurs during the compilation, teatime is now ready.
+If no error occurs during the compilation, Teatime is now ready.
 
 ## Usage:
 
-teatime is currently compiled as a local software.
-You need to explicitly call him each time you want to run it
+Teatime is currently compiled as a local software.
+You need to explicitly call it each time you want to run it
 
 `~/-your-/-path-/teatime [option(s)]`
 
 In order to use it from anywhere, you have to either create an alias in your shell .rc file (such as ~/.bashrc or ~/.zshrc) or move it in one of your bin folder (requiring root permission).
 
-By now, four options are availables
+Five options are availables
 
 ```
 -m --minutes={XX}	  -> Add XX minute(s) to the timer
 -s --seconds={YY}	  -> Add YY second(s) to the timer
+-p --pause		  -> Start the program with paused timer
 -h --help		  -> Display this help
 -v --version		  -> Display current version and extra info
  q 			  -> Quit the program during execution
+ p			  -> (Un)pause the timer during execution
 ```
 
-At least one time option is required, and the time should be greater than 0s.
-Currently, the program shall end himself once the timer is reach or if the 'q' key is pressed during execution.
+At least one time option is required, and the time should be between 00:01 and 99:59.
+Once the timer is reached, press any key to stop Teatime.

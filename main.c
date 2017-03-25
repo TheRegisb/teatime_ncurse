@@ -5,25 +5,26 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 16:39:12 2017 Régis Berthelot
-** Last update Sat Mar 25 13:58:00 2017 Régis Berthelot
+** Last update Sat Mar 25 17:22:34 2017 Régis Berthelot
 */
 
 #include "my.h"
 
 /*
-** Time_array represent {Min; Sec; Total time in sec}
+** Time_array represent {Min; Sec; Total time in sec; Start paused y/N}
 */
 
 int	main(int ac, char **av)
 {
-  static int	time_array[2];
-
+  static int	time_array[3];
+  
   if (ac < 2)
     {
       write(2, "Error: at least one time option is required.\n", 46);
       help();
       return (1);
     }
+  time_array[3] = -1;
   parser(av, time_array);
   if (time_array[0] == 0 && time_array[1] == 0)
     {
