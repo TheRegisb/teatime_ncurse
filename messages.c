@@ -5,7 +5,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Fri Mar 24 17:18:06 2017 Régis Berthelot
-** Last update Sat Mar 25 10:02:50 2017 Régis Berthelot
+** Last update Sat Mar 25 11:24:49 2017 Régis Berthelot
 */
 
 #include "my.h"
@@ -21,6 +21,6 @@ void	help(void)
 
 void	version(void)
 {
-  write(1, "teatime -- A simple ncurse timer\n  Version 0.02\n  "
+  write(1, "teatime -- A simple ncurse timer\n  Version 0.4\n  "
 	"Made by Régis Berthelot WITHOUT WARRANTY OF ANY KIND.\n", 105);
 }

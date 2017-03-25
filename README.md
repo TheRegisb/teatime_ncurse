@@ -7,11 +7,11 @@ This program DOES NOT PROVIDE WARRANTY OF ANY KIND.
 
 Currently, the project is distributed without license.
 
-Only tested on Debian 9 (testing) amd64.
+Only tested on Debian 9 (testing) with amd64 architecture.
 
 ## Getting started:
 
-How to propely install and use teatime.
+How to properly install and use teatime.
 
 ### Prerequisite
 
@@ -28,7 +28,7 @@ First, move to the cloned repository
 
 `cd ~/-path-/teatime_ncruse-master`
 
-Then, proceed to the compliation
+Then, proceed to the compilation
 
 `make`
 
@@ -52,6 +52,6 @@ By now, only four options are available
 -v --version		  -> Display current version and extra info
 ```
 
-At least one time option is required, and the time should e greater than 0s.
+At least one time option is required, and the time should be greater than 0s.
 
-Currently, this program have no real usage.
+Currently, once started, you cannot interact with the program anymore until you reach the timer.
