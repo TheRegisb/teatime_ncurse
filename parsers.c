@@ -2,10 +2,10 @@
 ** parsers.c for teatime in /home/regisb/Documents/projets/teatime
 ** 
 ** Made by Régis Berthelot
-** Login   <regis.berthelot@epitech.eu>
+** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 19:50:46 2017 Régis Berthelot
-** Last update Fri Mar 24 17:31:04 2017 Régis Berthelot
+** Last update Sat Mar 25 10:03:28 2017 Régis Berthelot
 */
 
 #include "my.h"

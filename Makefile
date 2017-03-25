@@ -2,10 +2,10 @@
 ## Makefile for teatime in /home/regisb/Documents/projets/teatime_ncurse
 ## 
 ## Made by Régis Berthelot
-## Login   <regis.berthelot@epitech.eu>
+## Login   <berthelot.regis@gmail.com>
 ## 
 ## Started on  Fri Mar 24 17:34:52 2017 Régis Berthelot
-## Last update Fri Mar 24 17:34:56 2017 Régis Berthelot
+## Last update Sat Mar 25 10:22:53 2017 Régis Berthelot
 ##
 
 CC	=	gcc
@@ -13,6 +13,7 @@ CC	=	gcc
 RM	=	rm -f
 
 SRCS	=	analysts.c	\
+		graphics.c	\
 		messages.c	\
 		parsers.c	\
 		main.c

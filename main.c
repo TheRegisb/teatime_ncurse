@@ -2,10 +2,10 @@
 ** main.c for teatime in /home/regisb/Documents/projets/teatime
 ** 
 ** Made by Régis Berthelot
-** Login   <regis.berthelot@epitech.eu>
+** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 16:39:12 2017 Régis Berthelot
-** Last update Fri Mar 24 17:23:44 2017 Régis Berthelot
+** Last update Sat Mar 25 10:38:46 2017 Régis Berthelot
 */
 
 #include "my.h"
@@ -14,9 +14,11 @@
 ** Time_array represent {Min; Sec; Total time in sec}
 */
 
+#include <stdio.h>
+
 int	main(int ac, char **av)
 {
-  static int	time_array[3];
+  static int	time_array[2];
 
   if (ac < 2)
     {
@@ -30,5 +32,6 @@ int	main(int ac, char **av)
       write(2, "Error: time must be greater than 0\n", 35);
       return (1);
     }
+  teatime_core(time_array);
   return (0);
 }
