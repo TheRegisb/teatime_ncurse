@@ -5,7 +5,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 16:39:12 2017 Régis Berthelot
-** Last update Sat Mar 25 10:38:46 2017 Régis Berthelot
+** Last update Sat Mar 25 13:58:00 2017 Régis Berthelot
 */
 
 #include "my.h"
@@ -13,8 +13,6 @@
 /*
 ** Time_array represent {Min; Sec; Total time in sec}
 */
-
-#include <stdio.h>
 
 int	main(int ac, char **av)
 {
