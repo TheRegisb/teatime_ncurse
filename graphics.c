@@ -1,11 +1,29 @@
 /*
+**  Teatime - A simple ncurses-based timer
+**  Copyright (C) 2017 Régis BERTHELOT
+**
+**  This program is free software: you can redistribute it and/or modify
+**  it under the terms of the GNU General Public License as published by
+**  the Free Software Foundation, either version 3 of the License, or
+**  (at your option) any later version.
+**
+**  This program is distributed in the hope that it will be useful,
+**  but WITHOUT ANY WARRANTY; without even the implied warranty of
+**  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+**  GNU General Public License for more details.
+**
+**  You should have received a copy of the GNU General Public License
+**  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/*
 ** graphics.c for teatime in /home/regisb/Documents/projets/teatime_ncurse
 ** 
 ** Made by Régis Berthelot
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Sat Mar 25 10:01:50 2017 Régis Berthelot
-** Last update Sat Mar 25 17:16:11 2017 Régis Berthelot
+** Last update Sun Mar 26 14:18:03 2017 Régis Berthelot
 */
 
 #include "my.h"
@@ -29,7 +47,7 @@ static void	draw_hub(int row,int col)
   move(0, 0);
   for (int i = 0; i != col; i++)
     printw(" ");
-  mvprintw(0, 0, "teatime -- version 1.0");
+  mvprintw(0, 0, "Teatime -- version 1.02");
   move(row - 1, 0);
   for (int i = 0; i != col; i++)
     printw(" ");
@@ -47,6 +65,20 @@ static void	update_timer(int current_time, int *time_array, int row, int col)
     mvprintw((row / 2) + 1, col / 2 - 11, "Status:\t     On going");
   else
     mvprintw((row / 2) + 1, col / 2 - 11, "Status:\t       Paused");
+}
+
+static void	end_teatime(int row, int col)
+{
+  flash();
+  move((row / 2) + 1, (col / 2) - 11);
+  printw("Status:\t        Done!");
+  attron(COLOR_PAIR(1));
+  for (int i = 0; i != col; i++)
+    mvprintw(row - 1, i, " ");
+  mvprintw(row - 1, 0, "Press any key to quit Teatime");
+  attroff(COLOR_PAIR(1));
+  timeout(-1);
+  getch();
 }
 
 void	teatime_core(int *time_array)
@@ -87,10 +119,6 @@ void	teatime_core(int *time_array)
       refresh();
       usleep(250000);
     }
-  flash();
-  move((row / 2) + 1, (col / 2) - 11);
-  printw("Status:\t        Done!");
-  timeout(-1);
-  getch();
+  end_teatime(row, col);
   endwin();
 }
