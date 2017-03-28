@@ -42,7 +42,7 @@ You need to explicitly call it each time you want to run it
 
 In order to use it from anywhere, you have to either create an alias in your shell .rc file (such as ~/.bashrc or ~/.zshrc) or move it in one of your bin folder (requiring root permission).
 
-Five options are availables
+Six options are availables
 
 ```
 -m --minutes={XX}	  -> Add XX minute(s) to the timer
@@ -50,6 +50,7 @@ Five options are availables
 -p --pause		  -> Start the program with paused timer
 -h --help		  -> Display this help
 -v --version		  -> Display current version and extra info
+-p --pause		  -> Start with the timer paused
  q 			  -> Quit the program during execution
  p			  -> (Un)pause the timer during execution
 ```

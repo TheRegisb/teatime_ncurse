@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 19:50:46 2017 Régis Berthelot
-** Last update Sun Mar 26 14:17:20 2017 Régis Berthelot
+** Last update Tue Mar 28 19:26:38 2017 Régis Berthelot
 */
 
 #include "my.h"
@@ -90,7 +90,7 @@ static int	parse_time(char  **av, char *short_option, char *long_option)
 	  if (nbr == -1)
 	    {
 	      write(1, "Wrong time input. "
-		    "Expected a whole number greater or equal to 0\n", 61);
+		    "Expected a whole number greater or equal to 0\n", 64);
 	      exit(1);
 	    }
 	}
@@ -108,7 +108,7 @@ static int	parse_time(char  **av, char *short_option, char *long_option)
 	  else
 	    {
 	      write(1, "Wrong time input. "
-		    "Expected a whole number greater or equal to 0\n", 61);
+		    "Expected a whole number greater or equal to 0\n", 64);
 	      exit(1);
 	    }
 	}

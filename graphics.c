@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Sat Mar 25 10:01:50 2017 Régis Berthelot
-** Last update Sun Mar 26 14:18:03 2017 Régis Berthelot
+** Last update Tue Mar 28 19:25:31 2017 Régis Berthelot
 */
 
 #include "my.h"
@@ -47,7 +47,7 @@ static void	draw_hub(int row,int col)
   move(0, 0);
   for (int i = 0; i != col; i++)
     printw(" ");
-  mvprintw(0, 0, "Teatime -- version 1.02");
+  mvprintw(0, 0, "Teatime -- version 1.03");
   move(row - 1, 0);
   for (int i = 0; i != col; i++)
     printw(" ");
@@ -59,19 +59,19 @@ static void	update_timer(int current_time, int *time_array, int row, int col)
 {
   mvprintw(row / 2 - 2, col / 2 - 11, "Infusion time:\t%02d:%02d",
 	 time_array[0], time_array[1]);
-  mvprintw((row / 2) - 1, col / 2 - 11, "Time elapsed:\t%02d:%02d",
+  mvprintw((row / 2) - 1, col / 2 - 11, "Time elapsed: \t%02d:%02d",
 	   current_time / 60, current_time % 60);
   if (time_array[3] == -1)
-    mvprintw((row / 2) + 1, col / 2 - 11, "Status:\t     On going");
+    mvprintw((row / 2) + 1, col / 2 - 11, "Status:       \t  ...");
   else
-    mvprintw((row / 2) + 1, col / 2 - 11, "Status:\t       Paused");
+    mvprintw((row / 2) + 1, col / 2 - 11, "Status:       \tPause");
 }
 
 static void	end_teatime(int row, int col)
 {
   flash();
   move((row / 2) + 1, (col / 2) - 11);
-  printw("Status:\t        Done!");
+  printw("Status:       \tDone!");
   attron(COLOR_PAIR(1));
   for (int i = 0; i != col; i++)
     mvprintw(row - 1, i, " ");
