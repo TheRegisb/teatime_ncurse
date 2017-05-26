@@ -23,7 +23,7 @@
 ## Login   <berthelot.regis@gmail.com>
 ## 
 ## Started on  Fri Mar 24 17:34:52 2017 Régis Berthelot
-## Last update Sun Mar 26 14:18:54 2017 Régis Berthelot
+## Last update Fri May 26 16:50:54 2017 Régis Berthelot
 ##
 
 CC	=	gcc
@@ -40,7 +40,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 NAME	=	teatime
 
-CFLAGS	+=	-W -Wall -Wextra -pedantic
+CFLAGS	+=	-W -Wall -Wextra -pedantic -std=gnu90 -O3
 
 LIB	=	-I. -lncurses
 

@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Sat Mar 25 10:01:50 2017 Régis Berthelot
-** Last update Tue Mar 28 19:25:31 2017 Régis Berthelot
+** Last update Fri May 26 16:55:48 2017 Régis Berthelot
 */
 
 #include "my.h"
@@ -39,20 +39,38 @@ static void	set_display(void)
   start_color();
   use_default_colors();
   init_pair(1, COLOR_BLACK, COLOR_WHITE);
+  init_pair(2, COLOR_RED, COLOR_BLACK);
+  init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+  init_pair(4, COLOR_GREEN, COLOR_BLACK);
+  init_pair(5, COLOR_CYAN, COLOR_BLACK);
 }
 
 static void	draw_hub(int row,int col)
 {
+  int		i;
+  
   attron(COLOR_PAIR(1));
   move(0, 0);
-  for (int i = 0; i != col; i++)
+  for (i = 0; i != col; i++)
     printw(" ");
-  mvprintw(0, 0, "Teatime -- version 1.03");
+  mvprintw(0, 0, "Teatime -- version 1.12");
   move(row - 1, 0);
-  for (int i = 0; i != col; i++)
+  for (i = 0; i != col; i++)
     printw(" ");
   mvprintw(row - 1, 0, "Commands: 'q' to quit | 'p' to pause the timer");
   attroff(COLOR_PAIR(1));
+}
+
+static void	update_status_bar(int current_time, int *time_array, int row, int col)
+{
+  short		progress;
+
+  progress = (current_time * 100 / time_array[2]) / 10;
+  mvprintw((row / 2) + 2, col / 2 - 11, "Progress:      [");
+  attron(COLOR_PAIR((progress / 3) + 2));
+  printw("%-10.*s", progress, "##########");
+  attroff(COLOR_PAIR((progress / 3) + 2));
+  printw("]\n");
 }
 
 static void	update_timer(int current_time, int *time_array, int row, int col)
@@ -65,15 +83,18 @@ static void	update_timer(int current_time, int *time_array, int row, int col)
     mvprintw((row / 2) + 1, col / 2 - 11, "Status:       \t  ...");
   else
     mvprintw((row / 2) + 1, col / 2 - 11, "Status:       \tPause");
+  update_status_bar(current_time, time_array, row, col);
 }
 
 static void	end_teatime(int row, int col)
 {
+  int		i;
+  
   flash();
   move((row / 2) + 1, (col / 2) - 11);
   printw("Status:       \tDone!");
   attron(COLOR_PAIR(1));
-  for (int i = 0; i != col; i++)
+  for (i = 0; i != col; i++)
     mvprintw(row - 1, i, " ");
   mvprintw(row - 1, 0, "Press any key to quit Teatime");
   attroff(COLOR_PAIR(1));
@@ -83,14 +104,12 @@ static void	end_teatime(int row, int col)
 
 void	teatime_core(int *time_array)
 {
-  int	start_time;
-  int	current_time;
-  int	row;
-  int	col;
+  int	start_time, current_time;
+  int	row, col;
   int	i;
 
   start_time = time(NULL);
-  current_time = 0;
+  current_time = row = col = 0;
   set_display();
   while (current_time < (time_array[2]))
     {
@@ -104,10 +123,10 @@ void	teatime_core(int *time_array)
       else if (i == 'p')
 	time_array[3] *= -1;
       getmaxyx(stdscr, row, col);
-      if (col < 46 || row < 6)
+      if (col < 46 || row < 7)
 	{
 	  endwin();
-	  write(2, "Error: The terminal must be at least 46x6! --ended\n", 51);
+	  write(2, "Error: The terminal must be at least 46x7! --ended\n", 51);
 	  exit(1);
 	}
       draw_hub(row, col);

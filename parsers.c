@@ -23,14 +23,16 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 19:50:46 2017 Régis Berthelot
-** Last update Tue Mar 28 19:26:38 2017 Régis Berthelot
+** Last update Fri May 26 16:29:37 2017 Régis Berthelot
 */
 
 #include "my.h"
 
 static void	are_details_asked(char **av)
 {
-  for (int i = 1; av[i] != NULL; i++)
+  int		i;
+  
+  for (i = 1; av[i] != NULL; i++)
     {
       if ((strcmp(av[i], "-h") == 0)
 	  || (strcmp(av[i], "--help") == 0))
@@ -50,9 +52,10 @@ static void	are_details_asked(char **av)
 static int	start_paused(char **av)
 {
   int		pause;
+  int		i;
 
   pause = -1;
-  for (int i = 1; av[i] != NULL; i++)
+  for (i = 1; av[i] != NULL; i++)
     {
       if ((strcmp(av[i], "-p") == 0)
 	  || (strcmp(av[i], "--pause") == 0))
@@ -72,9 +75,10 @@ static int	start_paused(char **av)
 
 static int	parse_time(char  **av, char *short_option, char *long_option)
 {
-  int	nbr = 0;
+  int		nbr = 0;
+  int		i;
 
-  for (int i = 0; av[i] != NULL; i++)
+  for (i = 0; av[i] != NULL; i++)
     {
       if (((strncmp(long_option, av[i], 10) == 0)
 	   && strlen(av[i]) > 10 && strlen(av[i]) <= 12))
