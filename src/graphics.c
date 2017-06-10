@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Sat Mar 25 10:01:50 2017 Régis Berthelot
-** Last update Sat Jun 10 10:41:01 2017 Régis Berthelot
+** Last update Sat Jun 10 11:14:52 2017 Régis Berthelot
 */
 
 #include "teatime.h"
@@ -53,7 +53,7 @@ static void	draw_hub(int row, int col)
   move(0, 0);
   for (i = 0; i != col; i++)
     printw(" ");
-  mvprintw(0, 0, "Teatime -- version 1.12");
+  mvprintw(0, 0, "Teatime -- version 1.20");
   move(row - 1, 0);
   for (i = 0; i != col; i++)
     printw(" ");
