@@ -23,26 +23,26 @@
 ## Login   <berthelot.regis@gmail.com>
 ## 
 ## Started on  Fri Mar 24 17:34:52 2017 Régis Berthelot
-## Last update Fri May 26 16:50:54 2017 Régis Berthelot
+## Last update Sat Jun 10 10:42:48 2017 Régis Berthelot
 ##
 
 CC	=	gcc
 
 RM	=	rm -f
 
-SRCS	=	analysts.c	\
-		graphics.c	\
-		messages.c	\
-		parsers.c	\
-		main.c
+SRCS	=	src/analysts.c	\
+		src/graphics.c	\
+		src/messages.c	\
+		src/parsers.c	\
+		src/main.c
 
 OBJS	=	$(SRCS:.c=.o)
 
 NAME	=	teatime
 
-CFLAGS	+=	-W -Wall -Wextra -pedantic -std=gnu90 -O3
+CFLAGS	+=	-W -Wall -Wextra -pedantic -std=gnu90 -O3 -I./header/
 
-LIB	=	-I. -lncurses
+LIB	=	-lncurses
 
 all: $(NAME)
 

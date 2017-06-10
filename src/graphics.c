@@ -23,10 +23,10 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Sat Mar 25 10:01:50 2017 Régis Berthelot
-** Last update Sat Jun 10 10:35:31 2017 Régis Berthelot
+** Last update Sat Jun 10 10:41:01 2017 Régis Berthelot
 */
 
-#include "my.h"
+#include "teatime.h"
 
 static void	set_display(void)
 {

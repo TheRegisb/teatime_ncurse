@@ -23,10 +23,10 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 16:39:12 2017 Régis Berthelot
-** Last update Sat Jun 10 10:36:57 2017 Régis Berthelot
+** Last update Sat Jun 10 10:40:55 2017 Régis Berthelot
 */
 
-#include "my.h"
+#include "teatime.h"
 
 /*
 ** Time_array represent {Min; Sec; Total time in sec; Start paused y/N}
