@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 19:50:46 2017 Régis Berthelot
-** Last update Fri May 26 16:29:37 2017 Régis Berthelot
+** Last update Sat Jun 10 10:33:00 2017 Régis Berthelot
 */
 
 #include "my.h"
@@ -62,9 +62,9 @@ static int	start_paused(char **av)
 	{
 	  if (pause != -1)
 	    {
-	      write(2, "Error: Conflicting setup. "
+	      write(2, "Teatime: Conflicting setup. "
 		    "No more than one option of the same type"
-		    " can be used.\n", 80);
+		    " can be used.\n", 82);
 	      exit(1);
 	    }
 	  pause = 1;
@@ -73,46 +73,36 @@ static int	start_paused(char **av)
   return (pause);
 }
 
+/*
+** The below if condition test both short and long options
+** If the short option is used, variable type become 1 to get the next argument
+*/
+
 static int	parse_time(char  **av, char *short_option, char *long_option)
 {
-  int		nbr = 0;
-  int		i;
+  int		nbr, i, type;
 
+  nbr = 0;
   for (i = 0; av[i] != NULL; i++)
     {
+      type = 0;
       if (((strncmp(long_option, av[i], 10) == 0)
-	   && strlen(av[i]) > 10 && strlen(av[i]) <= 12))
+	   && strlen(av[i]) > 10 && strlen(av[i]) <= 12)
+	  || (strcmp(short_option, av[i]) == 0
+	      && av[i + 1] && (type = 1)))
 	{
 	  if (nbr != 0)
 	    {
-	      write(2, "Error: Conflicting setup. "
+	      write(2, "Teatime: Conflicting setup. "
 		    "No more than one option of the same type"
-		    " can be used.\n", 80);
+		    " can be used.\n", 82);
 	      exit(1);
 	    }
-	  nbr = get_time_option(av[i]);
-	  if (nbr == -1)
+	  nbr = get_time_option(av[i + type]);
+	  if (nbr <= 0)
 	    {
-	      write(1, "Wrong time input. "
-		    "Expected a whole number greater or equal to 0\n", 64);
-	      exit(1);
-	    }
-	}
-      else if ((strcmp(short_option, av[i]) == 0) && av[i + 1])
-	{
-	  if (nbr != 0)
-	    {
-	      write(2, "Error: Conflicting setup. "
-		    "No more than one option of the same type"
-		    " can be used.\n", 80);
-	      exit(1);
-	    }
-	  if (is_numeric(av[i + 1]) == 1)
-	    nbr = get_time_option(av[i + 1]);
-	  else
-	    {
-	      write(1, "Wrong time input. "
-		    "Expected a whole number greater or equal to 0\n", 64);
+	      write(2, "Teatime: Wrong time input. "
+		    "Expected a whole number greater or equal to 0\n", 73);
 	      exit(1);
 	    }
 	}
@@ -130,8 +120,8 @@ void	parser(char **av, int *time_array)
   time_array[2] = time_array[1] + (time_array[0] * 60);
   if (time_array[2] > 5999)
     {
-      write(2, "Error: "
-	    "Cannot set a timer greater than 99:59 (or 5999 seconds)\n", 63);
+      write(2, "Teatime: "
+	    "Cannot set a timer greater than 99:59 (or 5999 seconds)\n", 65);
       exit(1);
     }
   time_array[3] = start_paused(av);

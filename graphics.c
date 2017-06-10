@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Sat Mar 25 10:01:50 2017 Régis Berthelot
-** Last update Fri May 26 16:55:48 2017 Régis Berthelot
+** Last update Sat Jun 10 10:35:31 2017 Régis Berthelot
 */
 
 #include "my.h"
@@ -45,10 +45,10 @@ static void	set_display(void)
   init_pair(5, COLOR_CYAN, COLOR_BLACK);
 }
 
-static void	draw_hub(int row,int col)
+static void	draw_hub(int row, int col)
 {
   int		i;
-  
+
   attron(COLOR_PAIR(1));
   move(0, 0);
   for (i = 0; i != col; i++)
@@ -61,7 +61,8 @@ static void	draw_hub(int row,int col)
   attroff(COLOR_PAIR(1));
 }
 
-static void	update_status_bar(int current_time, int *time_array, int row, int col)
+static void	update_status_bar(int current_time, int *time_array,
+				  int row, int col)
 {
   short		progress;
 
@@ -73,7 +74,8 @@ static void	update_status_bar(int current_time, int *time_array, int row, int co
   printw("]\n");
 }
 
-static void	update_timer(int current_time, int *time_array, int row, int col)
+static void	update_timer(int current_time, int *time_array,
+			     int row, int col)
 {
   mvprintw(row / 2 - 2, col / 2 - 11, "Infusion time:\t%02d:%02d",
 	 time_array[0], time_array[1]);
@@ -89,7 +91,7 @@ static void	update_timer(int current_time, int *time_array, int row, int col)
 static void	end_teatime(int row, int col)
 {
   int		i;
-  
+
   flash();
   move((row / 2) + 1, (col / 2) - 11);
   printw("Status:       \tDone!");
@@ -126,7 +128,7 @@ void	teatime_core(int *time_array)
       if (col < 46 || row < 7)
 	{
 	  endwin();
-	  write(2, "Error: The terminal must be at least 46x7! --ended\n", 51);
+	  write(2, "Teatime: The terminal must be at least 46x7! --ended\n", 53);
 	  exit(1);
 	}
       draw_hub(row, col);

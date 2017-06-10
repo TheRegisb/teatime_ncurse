@@ -23,11 +23,11 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 16:38:31 2017 Régis Berthelot
-** Last update Sun Mar 26 14:32:23 2017 Régis Berthelot
+** Last update Sat Jun 10 10:32:25 2017 Régis Berthelot
 */
 
-#ifndef MY_H_
-# define MY_H_
+#ifndef TEA_H_
+# define TEA_H_
 
 #include <ncurses.h>
 #include <string.h>
@@ -56,4 +56,4 @@ void	version(void);
 
 void	teatime_core(int *);
 
-#endif /* !MY_H_ */
+#endif /* !TEA_H_ */

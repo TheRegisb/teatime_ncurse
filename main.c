@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 16:39:12 2017 Régis Berthelot
-** Last update Fri May 26 16:53:07 2017 Régis Berthelot
+** Last update Sat Jun 10 10:36:57 2017 Régis Berthelot
 */
 
 #include "my.h"
@@ -32,21 +32,21 @@
 ** Time_array represent {Min; Sec; Total time in sec; Start paused y/N}
 */
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
-  static int	time_array[4];
+  int	time_array[4];
   
   if (ac < 2)
     {
-      write(2, "Error: at least one time option is required.\n", 46);
+      write(2, "Teatime: at least one time option is required.\n", 48);
       help();
       return (1);
     }
   time_array[3] = -1;
   parser(av, time_array);
-  if (time_array[0] == 0 && time_array[1] == 0)
+  if (time_array[2] == 0)
     {
-      write(2, "Error: time must be greater than 0\n", 35);
+      write(2, "Teatime: Time must be greater than 0\n", 37);
       return (1);
     }
   teatime_core(time_array);

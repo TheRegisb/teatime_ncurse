@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 18:37:33 2017 Régis Berthelot
-** Last update Sun Mar 26 14:17:54 2017 Régis Berthelot
+** Last update Sat Jun 10 10:26:19 2017 Régis Berthelot
 */
 
 int	get_time_option(char *str)
