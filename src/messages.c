@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Fri Mar 24 17:18:06 2017 Régis Berthelot
-** Last update Fri Sep  1 18:23:15 2017 Régis Berthelot
+** Last update Sun Sep 10 18:19:32 2017 Régis Berthelot
 */
 
 #include "teatime.h"
@@ -42,7 +42,7 @@ void	help(void)
 
 void	version(void)
 {
-  printf("Teatime -- A simple ncurses timer\n  Version: 1.20\n  "
+  printf("Teatime -- A simple ncurses timer\n  Version: 1.21\n  "
 	"Made by: Régis Berthelot\n  "
 	"License GPLv3+: GNU GPL version 3 or later "
 	"<http://gnu.org/licences/gpl.htlm>\n  "

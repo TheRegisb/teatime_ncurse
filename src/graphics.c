@@ -23,9 +23,10 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Sat Mar 25 10:01:50 2017 Régis Berthelot
-** Last update Fri Sep  1 18:20:32 2017 Régis Berthelot
+** Last update Fri Sep  1 18:31:25 2017 Régis Berthelot
 */
 
+#include <unistd.h>
 #include "teatime.h"
 
 static void	set_display(void)
@@ -138,7 +139,7 @@ void	teatime_core(int *time_array)
 	start_time = time(NULL) - current_time;
       update_timer(current_time, time_array, row, col);
       refresh();
-      usleep(250000);
+      usleep(100000);
     }
   end_teatime(row, col);
   endwin();

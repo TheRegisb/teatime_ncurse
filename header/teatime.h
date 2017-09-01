@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 16:38:31 2017 Régis Berthelot
-** Last update Sat Jun 10 10:32:25 2017 Régis Berthelot
+** Last update Fri Sep  1 18:27:47 2017 Régis Berthelot
 */
 
 #ifndef TEA_H_
@@ -31,7 +31,6 @@
 
 #include <ncurses.h>
 #include <string.h>
-#include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
 
