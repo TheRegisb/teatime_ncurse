@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 19:50:46 2017 Régis Berthelot
-** Last update Sat Jun 10 10:40:34 2017 Régis Berthelot
+** Last update Fri Sep  1 18:24:17 2017 Régis Berthelot
 */
 
 #include "teatime.h"
@@ -62,9 +62,9 @@ static int	start_paused(char **av)
 	{
 	  if (pause != -1)
 	    {
-	      write(2, "Teatime: Conflicting setup. "
-		    "No more than one option of the same type"
-		    " can be used.\n", 82);
+	      fprintf(stderr, "Teatime: Conflicting setup. "
+		      "No more than one option of the same type"
+		      " can be used.\n");
 	      exit(1);
 	    }
 	  pause = 1;
@@ -93,16 +93,16 @@ static int	parse_time(char  **av, char *short_option, char *long_option)
 	{
 	  if (nbr != 0)
 	    {
-	      write(2, "Teatime: Conflicting setup. "
-		    "No more than one option of the same type"
-		    " can be used.\n", 82);
+	      fprintf(stderr, "Teatime: Conflicting setup. "
+		      "No more than one option of the same type"
+		      " can be used.\n");
 	      exit(1);
 	    }
 	  nbr = get_time_option(av[i + type]);
 	  if (nbr <= 0)
 	    {
-	      write(2, "Teatime: Wrong time input. "
-		    "Expected a whole number greater or equal to 0\n", 73);
+	      fprintf(stderr, "Teatime: Wrong time input. "
+		      "Expected a whole number greater or equal to 0\n");
 	      exit(1);
 	    }
 	}
@@ -120,8 +120,8 @@ void	parser(char **av, int *time_array)
   time_array[2] = time_array[1] + (time_array[0] * 60);
   if (time_array[2] > 5999)
     {
-      write(2, "Teatime: "
-	    "Cannot set a timer greater than 99:59 (or 5999 seconds)\n", 65);
+      fprintf(stderr, "Teatime: "
+	    "Cannot set a timer greater than 99:59 (or 5999 seconds)\n");
       exit(1);
     }
   time_array[3] = start_paused(av);

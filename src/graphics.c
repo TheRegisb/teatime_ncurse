@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Sat Mar 25 10:01:50 2017 Régis Berthelot
-** Last update Sat Jun 10 11:14:52 2017 Régis Berthelot
+** Last update Fri Sep  1 18:20:32 2017 Régis Berthelot
 */
 
 #include "teatime.h"
@@ -128,7 +128,7 @@ void	teatime_core(int *time_array)
       if (col < 46 || row < 7)
 	{
 	  endwin();
-	  write(2, "Teatime: The terminal must be at least 46x7! --ended\n", 53);
+	  fprintf(stderr, "Teatime: The terminal must be at least 46x7! --ended\n");
 	  exit(1);
 	}
       draw_hub(row, col);

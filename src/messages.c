@@ -23,30 +23,30 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Fri Mar 24 17:18:06 2017 Régis Berthelot
-** Last update Sat Jun 10 11:13:43 2017 Régis Berthelot
+** Last update Fri Sep  1 18:23:15 2017 Régis Berthelot
 */
 
 #include "teatime.h"
 
 void	help(void)
 {
-  write(1, "Usage: teatime [options]\n"
-	"  -m --minutes={XX}\tAdd XX minute(s) to the timer.\n"
-	"  -s --seconds={YY]\tAdd YY second(s) to the timer.\n"
-	"  -p --pause\t\tStart with the timer paused.\n"
-	"  -h --help\t\tDisplay this help.\n"
-	"  -v --version\t\tDisplay current version\n"
-	"   q\t\t\tQuit teatime (during execution).\n"
-	"   p\t\t\tPause the timer (during execution).\n", 325);
+  printf("Usage: teatime [options]\n"
+	 "  -m --minutes={XX}\tAdd XX minute(s) to the timer.\n"
+	 "  -s --seconds={YY]\tAdd YY second(s) to the timer.\n"
+	 "  -p --pause\t\tStart with the timer paused.\n"
+	 "  -h --help\t\tDisplay this help.\n"
+	 "  -v --version\t\tDisplay current version\n"
+	 "   q\t\t\tQuit teatime (during execution).\n"
+	 "   p\t\t\tPause the timer (during execution).\n");
 }
 
 void	version(void)
 {
-  write(1, "Teatime -- A simple ncurses timer\n  Version: 1.20\n  "
+  printf("Teatime -- A simple ncurses timer\n  Version: 1.20\n  "
 	"Made by: Régis Berthelot\n  "
 	"License GPLv3+: GNU GPL version 3 or later "
 	"<http://gnu.org/licences/gpl.htlm>\n  "
 	"This software is free, and you are welcome to redistribute it "
 	"under certain conditions.\n  "
-	"This program comes with ABSOLUTELY NO WARRANTY.\n", 248);
+	"This program comes with ABSOLUTELY NO WARRANTY.\n");
 }

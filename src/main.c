@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Thu Mar 23 16:39:12 2017 Régis Berthelot
-** Last update Sat Jun 10 10:40:55 2017 Régis Berthelot
+** Last update Fri Sep  1 18:24:31 2017 Régis Berthelot
 */
 
 #include "teatime.h"
@@ -38,7 +38,7 @@ int	main(int ac, char **av)
   
   if (ac < 2)
     {
-      write(2, "Teatime: at least one time option is required.\n", 48);
+      fprintf(stderr, "Teatime: at least one time option is required.\n");
       help();
       return (1);
     }
@@ -46,7 +46,7 @@ int	main(int ac, char **av)
   parser(av, time_array);
   if (time_array[2] == 0)
     {
-      write(2, "Teatime: Time must be greater than 0\n", 37);
+      fprintf(stderr, "Teatime: Time must be greater than 0\n");
       return (1);
     }
   teatime_core(time_array);
