@@ -23,7 +23,7 @@
 ** Login   <berthelot.regis@gmail.com>
 ** 
 ** Started on  Sat Mar 25 10:01:50 2017 Régis Berthelot
-** Last update Fri Sep  1 18:31:25 2017 Régis Berthelot
+** Last update Sun Sep 10 18:34:16 2017 Régis Berthelot
 */
 
 #include <unistd.h>
@@ -112,8 +112,9 @@ void	teatime_core(int *time_array)
   int	i;
 
   start_time = time(NULL);
-  current_time = row = col = 0;
-  set_display();
+  current_time = 0;
+  row = (col = 0);
+  set_display(); /* Init ncurses screen and color pairs */
   while (current_time < (time_array[2]))
     {
       clear();
@@ -124,16 +125,17 @@ void	teatime_core(int *time_array)
 	  exit(0);
 	}
       else if (i == 'p')
-	time_array[3] *= -1;
+	time_array[3] *= -1; /* Pause indicator, equal -1 for paused */
       getmaxyx(stdscr, row, col);
       if (col < 46 || row < 7)
 	{
 	  endwin();
-	  fprintf(stderr, "Teatime: The terminal must be at least 46x7! --ended\n");
+	  fprintf(stderr, "Teatime: The terminal must be at least 46x7!"
+		  "--ended\n");
 	  exit(1);
 	}
       draw_hub(row, col);
-      if (time_array[3] == -1)
+      if (time_array[3] == -1) /* Pause alter start time to compensate */
 	current_time = time(NULL) - start_time;
       else
 	start_time = time(NULL) - current_time;
@@ -141,6 +143,6 @@ void	teatime_core(int *time_array)
       refresh();
       usleep(100000);
     }
-  end_teatime(row, col);
+  end_teatime(row, col); /* Make ncurses screen static until input */
   endwin();
 }
